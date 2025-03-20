@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+BDD_HOST="localhost"
+BDD_USER="eleve"
+BDD_PASS="btsinfo"
+BDD_NAME="myGestIOnR"
+
+
+
+echo "Veuillez saisir les informations suivantes : "
+read -p "> Nom : " Nom
+read -p "> Adresse MAC :" Mac
+read -p "> Adresse IP : " Ip
+read -p "> Masque (CIDR) " Masque
+read -p "> Type (1: machine; 2: switch; 3: serveur) " Type
+echo "Récapitulatif de la requete :"
+echo "> INSERT INTO Equipement (nom, adMAC, adIP, CIDR, idT) VALUES ('$Nom','$Mac','$Ip',$Masque,$Type);"
+read -p "Confirmer l'insertion (0/n) :" choix
+
+if $choix == o or $choix == O 
+    mysql -h "$BDD_HOST" -u "$BDD_USER" -p"$BDD_PASS" -D "$BDD_NAME" -e "
+    INSERT INTO Equipement (nom, adMAC, adIP, CIDR, idT) VALUES ('$Nom','$Mac','$Ip',$Masque,$Type);"
+else if 

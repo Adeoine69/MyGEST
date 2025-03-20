@@ -1,0 +1,29 @@
+echo testTCP
+
+#!/bin/bash
+
+read -p "EVeuillez saisir une adresse IP: " adresse
+
+read -p "Veuillez saisir un numéro de port TCP : " port
+
+
+if [ -z "$adresse" ]; then
+    echo "Erreur : Aucune adresse IP est rentré."
+    exit 1
+fi
+
+if [ -z "$port" ]; then
+    echo "Erreur : Aucun port TCP est rentré."
+    exit 1
+fi
+echo "Envoie de la requête TCP ..."
+
+
+sudo netstat -tnlp | grep :$port
+if [ $? -eq 0 ]; then
+    echo "Le port TCP est oouvert sur l'adresse IP"
+else
+    echo "Le port $port n'est pas ouvert sur l'adresse $adresse"
+fi
+
+#ping $adresse 
