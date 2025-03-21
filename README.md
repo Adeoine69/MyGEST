@@ -46,7 +46,9 @@ Le projet est organisé en plusieurs modules principaux :
 🖥️ Système d'exploitation : Linux (Ubuntu, Debian...) <br>
 📦 Dépendances : mysql-server, bash, net-tools
 
+--------------------------------
 🎯 Utilisation
+
 Une fois installé, vous pouvez exécuter le programme principal : <br>
 Un menu interactif vous guidera pour choisir les différentes fonctionnalités.
 
